@@ -20,14 +20,15 @@ public class AdaptadorPersonajes extends RecyclerView.Adapter <AdaptadorPersonaj
 
     @Override
     public HolderPersonajes onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_list,null,false);
+        //View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_list,null,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_grid_personajes,null,false);
         return new HolderPersonajes(view);
     }
 
     @Override
     public void onBindViewHolder(HolderPersonajes holderPersonajes, int i) {
         holderPersonajes.et_nombre.setText(listaPersonajes.get(i).getNombre());
-        holderPersonajes.et_information.setText(listaPersonajes.get(i).getInfo());
+       // holderPersonajes.et_information.setText(listaPersonajes.get(i).getInfo());
         holderPersonajes.foto.setImageResource(listaPersonajes.get(i).getFoto());
     }
 
@@ -45,7 +46,7 @@ public class AdaptadorPersonajes extends RecyclerView.Adapter <AdaptadorPersonaj
             super(itemView);
 
             et_nombre = (TextView) itemView.findViewById(R.id.idNombre);
-            et_information = (TextView) itemView.findViewById(R.id.idInfo);
+            //et_information = (TextView) itemView.findViewById(R.id.idInfo);
             foto = (ImageView) itemView.findViewById(R.id.idImagen);
         }
     }

@@ -37,7 +37,13 @@
                 android:layout_marginRight="10dp"
                 android:text="@string/et_description" />
         </LinearLayout>
-
     </LinearLayout>
+    <EditText
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:shadowColor="#060100"
+        android:textColorHighlight="#060100"
+        />
 
 </LinearLayout>

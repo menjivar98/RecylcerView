@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         ListPersonajes = new ArrayList<>();
         recyclerPersonajes = (RecyclerView) findViewById(R.id.recycler_id);
-        recyclerPersonajes.setLayoutManager(new LinearLayoutManager(this));
-
+        //recyclerPersonajes.setLayoutManager(new LinearLayoutManager(this));
+         recyclerPersonajes.setLayoutManager(new GridLayoutManager(this,2));
         llenarPersonajes();
 
         AdaptadorPersonajes adapter = new AdaptadorPersonajes(ListPersonajes);
