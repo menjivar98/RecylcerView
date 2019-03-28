@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,14 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListPersonajes = new ArrayList<>();
-        recyclerPersonajes = (RecyclerView) findViewById(R.id.recycler_id);
-        //recyclerPersonajes.setLayoutManager(new LinearLayoutManager(this));
-         recyclerPersonajes.setLayoutManager(new GridLayoutManager(this,2));
-        llenarPersonajes();
-
-        AdaptadorPersonajes adapter = new AdaptadorPersonajes(ListPersonajes);
-        recyclerPersonajes.setAdapter(adapter);
+        construirRecycler();
 
 
     }
@@ -45,4 +38,40 @@ public class MainActivity extends AppCompatActivity {
         ListPersonajes.add(new PersonajeVo("Dratini","Dratini muda y se despoja de la vieja piel continuamente. Es algo que necesita hacer porque la energía que tiene en su interior no para de alcanzar niveles incontrolables.",R.drawable.dratini));
 
     }
+
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.btn_list: Utilidades.visualizacion = Utilidades.LIST;
+                break;
+            case R.id.btn_grid: Utilidades.visualizacion = Utilidades.GRID;
+                break;
+        }
+        
+        construirRecycler();
+        
+    }
+
+    private void construirRecycler() {
+        ListPersonajes = new ArrayList<>();
+        recyclerPersonajes = (RecyclerView) findViewById(R.id.recycler_id);
+
+        if (Utilidades.visualizacion == Utilidades.LIST){
+            recyclerPersonajes.setLayoutManager(new LinearLayoutManager(this));
+        }else {
+            recyclerPersonajes.setLayoutManager(new GridLayoutManager(this,2));
+
+        }
+
+
+        llenarPersonajes();
+
+        AdaptadorPersonajes adapter = new AdaptadorPersonajes(ListPersonajes);
+        recyclerPersonajes.setAdapter(adapter);
+
+    }
+
+
+
+
 }

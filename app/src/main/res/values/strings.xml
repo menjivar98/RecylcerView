@@ -3,4 +3,6 @@
     <string name="text_test">mensaje</string>
     <string name="et_description">Description</string>
     <string name="tv_nombre">Nombre</string>
+    <string name="bt_list">List</string>
+    <string name="btn_grid">Grid</string>
 </resources>
